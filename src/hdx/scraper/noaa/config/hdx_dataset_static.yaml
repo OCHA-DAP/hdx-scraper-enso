@@ -1,10 +1,13 @@
 license_id: cc-by
-methodology: Other
+methodology: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ensofaq.shtml#ENSO
 caveats: None
-dataset_source: NOAA
+dataset_source: National Oceanic and Atmospheric Administration (NOAA) / Climate Prediction Center (CPC)
 package_creator: HDX Data Systems Team
 private: False
-maintainer: dataset maintainer HDX ID
-owner_org:  dataset organization HDX ID
-data_update_frequency: 30
-notes: dataset notes
+maintainer: 2f9fd160-2a16-49c0-89d6-0bc3230599bf
+owner_org: hdx
+data_update_frequency: 30 # first Thursday of each month
+notes: |
+  The Climate Prediction Center's (CPC) products are operational predictions of climate variability, real-time monitoring of climate and the required data bases, and assessments of the origins of major climate anomalies. The products cover time scales from a week to seasons, extending into the future as far as technically feasible, and cover the land, the ocean, and the atmosphere, extending into the stratosphere.
+
+  [Learn more about El Nino-Southern Oscillation (ENSO) here](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml)

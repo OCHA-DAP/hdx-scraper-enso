@@ -2,17 +2,20 @@
 """noaa scraper"""
 
 import logging
+from io import StringIO
 from typing import Optional
 
+import pandas as pd
+import requests
 from hdx.api.configuration import Configuration
 from hdx.data.dataset import Dataset
-from hdx.data.hdxobject import HDXError
 from hdx.utilities.retriever import Retrieve
+from slugify import slugify
 
 logger = logging.getLogger(__name__)
 
 
-class noaa:
+class NOAA:
     def __init__(
         self, configuration: Configuration, retriever: Retrieve, temp_dir: str
     ):
@@ -20,32 +23,80 @@ class noaa:
         self._retriever = retriever
         self._temp_dir = temp_dir
 
+    def process_enso(self) -> pd.DataFrame:
+        base_url = self._configuration["base_url"]
+        response = requests.get(base_url)
+        response.raise_for_status()
+
+        data = StringIO(response.text)
+
+        df = pd.read_csv(data, sep=r"\s+")
+
+        def anom_to_phase(anom):
+            if anom >= 0.5:
+                return "elnino"
+            elif anom <= -0.5:
+                return "lanina"
+            else:
+                return "neutral"
+
+        def label_longterm_phase(group, phase_name):
+            # Identify sequences with at least 5 consecutive identical phase names
+            count = 0
+            for i in range(len(group)):
+                if group[i] == phase_name:
+                    count += 1
+                    if count >= 5:
+                        df.loc[i - count + 1 : i, "phase_longterm"] = phase_name
+                else:
+                    count = 0
+
+        df["date"] = df["YR"].astype(str) + "-" + df["MON"].astype(str) + "-01"
+        df["date"] = pd.to_datetime(df["date"])
+        df = df.sort_values("date")
+        df["ANOM_trimester"] = df["ANOM"].rolling(window=3).mean().shift(-2)
+        df["ANOM_trimester_round"] = df["ANOM_trimester"].round(1)
+        df["phase_trimester"] = df["ANOM_trimester_round"].apply(anom_to_phase)
+        df["phase_longterm"] = "neutral"
+
+        label_longterm_phase(df["phase_trimester"], "elnino")
+        label_longterm_phase(df["phase_trimester"], "lanina")
+        return df
+
     def generate_dataset(self) -> Optional[Dataset]:
-        # To be generated
-        dataset_name = None
-        dataset_title = None
-        dataset_time_period = None
-        dataset_tags = None
-        dataset_country_iso3 = None
+        df = self.process_enso()
 
-        # Dataset info
-        dataset = Dataset(
-            {
-                "name": dataset_name,
-                "title": dataset_title,
-            }
+        # Create dataset
+        dataset_info = self._configuration
+        dataset_title = dataset_info["title"]
+        slugified_name = slugify(f"{dataset_info['title']}")
+
+        dataset = Dataset({"name": slugified_name, "title": dataset_title})
+
+        # Add dataset info
+        # dataset.add_country_location(location["code"])
+        dataset.add_other_location("world")
+        dataset.add_tags(dataset_info["tags"])
+
+        start_date = df["date"].min()
+        end_date = df["date"].max()
+        dataset.set_time_period(start_date, end_date)
+
+        # Create resource
+        resource_name = f"{slugified_name}.csv"
+        resource_description = dataset_info["description"]
+        resource = {
+            "name": resource_name,
+            "description": resource_description,
+        }
+        dataset.generate_resource_from_iterable(
+            headers=df.columns.tolist(),
+            iterable=df.to_dict(orient="records"),
+            hxltags=dataset_info["hxl_tags"],
+            folder=self._temp_dir,
+            filename=resource_name,
+            resourcedata=resource,
+            quickcharts=None,
         )
-
-        dataset.set_time_period(dataset_time_period)
-        dataset.add_tags(dataset_tags)
-        # Only if needed
-        dataset.set_subnational(True)
-        try:
-            dataset.add_country_location(dataset_country_iso3)
-        except HDXError:
-            logger.error(f"Couldn't find country {dataset_country_iso3}, skipping")
-            return
-
-        # Add resources here
 
         return dataset
