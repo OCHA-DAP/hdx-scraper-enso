@@ -91,7 +91,7 @@ class TestNOAA:
                         },
                     ],
                     "license_id": "cc-by",
-                    "methodology": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml",
+                    "methodology": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ensofaq.shtml#ENSO",
                     "caveats": "None",
                     "dataset_source": "National Oceanic and Atmospheric Administration (NOAA) / Climate Prediction Center (CPC)",
                     "groups": [{"name": "world"}],
@@ -104,14 +104,18 @@ class TestNOAA:
                     "of climate variability, real-time monitoring of climate and the required data bases, "
                     "and assessments of the origins of major climate anomalies. The products cover time "
                     "scales from a week to seasons, extending into the future as far as technically feasible, "
-                    "and cover the land, the ocean, and the atmosphere, extending into the stratosphere.",
+                    "and cover the land, the ocean, and the atmosphere, extending into the stratosphere.\n"
+                    "\n"
+                    "[Learn more about El Nino-Southern Oscillation (ENSO) "
+                    "here](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml)\n",
                 }
 
                 resources = dataset.get_resources()
                 assert resources == [
                     {
                         "name": "enso-el-nino-southern-oscillation.csv",
-                        "description": "csv file",
+                        "description": "Monthly analysis of the El Nino-Southern Oscillation (ENSO) "
+                        "cycle",
                         "format": "csv",
                         "resource_type": "file.upload",
                         "url_type": "upload",
