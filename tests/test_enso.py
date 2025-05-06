@@ -3,11 +3,12 @@ from os.path import join
 import pandas as pd
 import pytest
 from hdx.api.configuration import Configuration
-from hdx.scraper.enso.enso import ENSO
 from hdx.utilities.downloader import Download
 from hdx.utilities.path import temp_dir
 from hdx.utilities.retriever import Retrieve
 from hdx.utilities.useragent import UserAgent
+
+from hdx.scraper.enso.enso import ENSO
 
 
 class TestENSO:
@@ -92,10 +93,10 @@ class TestENSO:
                         },
                     ],
                     "license_id": "cc-by",
-                    "methodology": "[ENSO FAQ](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ensofaq.shtml#ENSO)  \n"
-                    " [Description of Changes to Ocean Niño Index (ONI)](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_change.shtml)",
+                    "methodology": "[ENSO FAQ](https://www.cpc.ncep.enso.gov/products/analysis_monitoring/ensostuff/ensofaq.shtml#ENSO)  \n"
+                    " [Description of Changes to Ocean Niño Index (ONI)](https://origin.cpc.ncep.enso.gov/products/analysis_monitoring/ensostuff/ONI_change.shtml)",
                     "caveats": "None",
-                    "dataset_source": "National Oceanic and Atmospheric Administration (NOAA) / Climate Prediction Center (CPC)",
+                    "dataset_source": "National Oceanic and Atmospheric Administration (enso) / Climate Prediction Center (CPC)",
                     "groups": [{"name": "world"}],
                     "package_creator": "HDX Data Systems Team",
                     "private": False,
@@ -105,8 +106,8 @@ class TestENSO:
                     "notes": "ENSO stands for El Niño/ Southern Oscillation. The ENSO cycle refers to the coherent and sometimes very strong year-to-year variations in sea- surface temperatures, convective rainfall, surface air pressure, and atmospheric circulation that occur across the equatorial Pacific Ocean. El Niño and La Niña represent opposite extremes in the ENSO cycle.  \n"
                     " El Niño refers to the above-average sea-surface temperatures that periodically develop across the east-central equatorial Pacific. It represents the warm phase of the ENSO cycle, and is sometimes referred to as a Pacific warm episode.  \n"
                     " La Niña refers to the periodic cooling of sea-surface temperatures across the east-central equatorial Pacific. It represents the cold phase of the ENSO cycle, and is sometimes referred to as a Pacific cold episode.  \n"
-                    " \n [View the raw data](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt)  \n"
-                    " [View the processed data](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)  \n"
+                    " \n [View the raw data](https://origin.cpc.ncep.enso.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt)  \n"
+                    " [View the processed data](https://origin.cpc.ncep.enso.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)  \n"
                     " \n Dataset field definitions:  \n"
                     " date: Year-month-date (first day of month)  \n"
                     " TOTAL: ERSST.v5 (sea surface temperature) in the Niño 3.4 region  \n"

@@ -69,7 +69,7 @@ frictionless==5.18.1
 hdx-python-api==6.3.8
     # via
     #   -c requirements.txt
-    #   hdx-scraper-noaa (pyproject.toml)
+    #   hdx-scraper-enso (pyproject.toml)
 hdx-python-country==3.9.2
     # via
     #   -c requirements.txt
@@ -77,7 +77,7 @@ hdx-python-country==3.9.2
 hdx-python-utilities==3.8.6
     # via
     #   -c requirements.txt
-    #   hdx-scraper-noaa (pyproject.toml)
+    #   hdx-scraper-enso (pyproject.toml)
     #   hdx-python-api
     #   hdx-python-country
 humanize==4.12.3
@@ -174,7 +174,7 @@ packaging==25.0
 pandas==2.2.3
     # via
     #   -c requirements.txt
-    #   hdx-scraper-noaa (pyproject.toml)
+    #   hdx-scraper-enso (pyproject.toml)
 petl==1.7.16
     # via
     #   -c requirements.txt
@@ -208,10 +208,10 @@ pyphonetics==0.5.3
     #   hdx-python-utilities
 pytest==8.3.5
     # via
-    #   hdx-scraper-noaa (pyproject.toml)
+    #   hdx-scraper-enso (pyproject.toml)
     #   pytest-cov
 pytest-cov==6.1.1
-    # via hdx-scraper-noaa (pyproject.toml)
+    # via hdx-scraper-enso (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
     #   -c requirements.txt

@@ -9,7 +9,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hdx-scraper-noaa"
+name = "hdx-scraper-enso"
 requires-python = ">=3.12"
 dependencies = [
   "hdx-python-api",
@@ -27,4 +27,4 @@ test = [
 dev = ["pre-commit"]
 
 [project.scripts]
-run = "hdx.scraper.noaa.__main__:main"
+run = "hdx.scraper.enso.__main__:main"

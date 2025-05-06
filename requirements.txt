@@ -37,12 +37,12 @@ et-xmlfile==2.0.0
 frictionless==5.18.1
     # via hdx-python-utilities
 hdx-python-api==6.3.8
-    # via hdx-scraper-noaa (pyproject.toml)
+    # via hdx-scraper-enso (pyproject.toml)
 hdx-python-country==3.9.2
     # via hdx-python-api
 hdx-python-utilities==3.8.6
     # via
-    #   hdx-scraper-noaa (pyproject.toml)
+    #   hdx-scraper-enso (pyproject.toml)
     #   hdx-python-api
     #   hdx-python-country
 humanize==4.12.3
@@ -94,7 +94,7 @@ numpy==2.2.5
 openpyxl==3.1.5
     # via hdx-python-utilities
 pandas==2.2.3
-    # via hdx-scraper-noaa (pyproject.toml)
+    # via hdx-scraper-enso (pyproject.toml)
 petl==1.7.16
     # via frictionless
 ply==3.11
