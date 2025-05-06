@@ -1,20 +1,19 @@
 base_url: "https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt"
-title: "ENSO: El Nino-Southern Oscillation"
-description: Monthly analysis of the El Nino-Southern Oscillation (ENSO) cycle
+title: "ENSO: El Niño-Southern Oscillation"
+description: Monthly analysis of the El Niño-Southern Oscillation (ENSO) cycle
 
 tags:
-  - hxl
+  - climate hazards
   - climate-weather
   - el nino-el nina
+  - hxl
 
 hxl_tags:
-  "YR": "#date+year"
-  "MON": "#date+month"
+  "date": "#date+reported"
   "TOTAL": "#value+total"
   "ClimAdjust": "#value+climadjust"
   "ANOM": "#value+anom"
-  "date": "#date"
   "ANOM_trimester": "#value+anom+trimester"
   "ANOM_trimester_round": "#value+anom+trimester+rounded"
   "phase_trimester": "#meta+phase+trimester"
-  "phase_longterm": "#meta+phase+longterm"
+  "phase_event": "#meta+phase+event"

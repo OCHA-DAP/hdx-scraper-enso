@@ -10,19 +10,18 @@ from os.path import dirname, expanduser, join
 
 from hdx.api.configuration import Configuration
 from hdx.facades.infer_arguments import facade
+from hdx.scraper.enso.enso import ENSO
 from hdx.utilities.downloader import Download
 from hdx.utilities.path import (
     wheretostart_tempdir_batch,
 )
 from hdx.utilities.retriever import Retrieve
 
-from hdx.scraper.noaa.noaa import NOAA
-
 logger = logging.getLogger(__name__)
 
-_USER_AGENT_LOOKUP = "hdx-scraper-noaa"
+_USER_AGENT_LOOKUP = "hdx-scraper-enso"
 _SAVED_DATA_DIR = "saved_data"  # Keep in repo to avoid deletion in /tmp
-_UPDATED_BY_SCRIPT = "HDX Scraper: noaa"
+_UPDATED_BY_SCRIPT = "HDX Scraper: enso"
 
 
 def main(
@@ -50,8 +49,8 @@ def main(
                 use_saved=use_saved,
             )
             configuration = Configuration.read()
-            noaa = NOAA(configuration, retriever, temp_dir)
-            dataset = noaa.generate_dataset()
+            enso = ENSO(configuration, retriever, temp_dir)
+            dataset = enso.generate_dataset()
 
             dataset.update_from_yaml(
                 path=join(dirname(__file__), "config", "hdx_dataset_static.yaml")

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""noaa scraper"""
+"""enso scraper"""
 
 import logging
 from io import StringIO
@@ -15,7 +15,7 @@ from slugify import slugify
 logger = logging.getLogger(__name__)
 
 
-class NOAA:
+class ENSO:
     def __init__(
         self, configuration: Configuration, retriever: Retrieve, temp_dir: str
     ):
@@ -40,27 +40,35 @@ class NOAA:
             else:
                 return "neutral"
 
-        def label_longterm_phase(group, phase_name):
+        def label_event_phase(group, phase_name):
             # Identify sequences with at least 5 consecutive identical phase names
             count = 0
             for i in range(len(group)):
                 if group[i] == phase_name:
                     count += 1
                     if count >= 5:
-                        df.loc[i - count + 1 : i, "phase_longterm"] = phase_name
+                        df.loc[i - count + 1 : i, "phase_event"] = phase_name
                 else:
                     count = 0
 
         df["date"] = df["YR"].astype(str) + "-" + df["MON"].astype(str) + "-01"
         df["date"] = pd.to_datetime(df["date"])
         df = df.sort_values("date")
+        # Remove year and month columns now that we have date
+        df.drop(["YR", "MON"], axis=1, inplace=True)
+
+        # Reorder columns so date is first
+        cols = ["date"] + [c for c in df.columns if c != "date"]
+        df = df[cols]
+
         df["ANOM_trimester"] = df["ANOM"].rolling(window=3).mean().shift(-2)
         df["ANOM_trimester_round"] = df["ANOM_trimester"].round(1)
         df["phase_trimester"] = df["ANOM_trimester_round"].apply(anom_to_phase)
-        df["phase_longterm"] = "neutral"
+        df["phase_event"] = "neutral"
 
-        label_longterm_phase(df["phase_trimester"], "elnino")
-        label_longterm_phase(df["phase_trimester"], "lanina")
+        label_event_phase(df["phase_trimester"], "elnino")
+        label_event_phase(df["phase_trimester"], "lanina")
+
         return df
 
     def generate_dataset(self) -> Optional[Dataset]:
@@ -89,6 +97,7 @@ class NOAA:
             "name": resource_name,
             "description": resource_description,
         }
+
         dataset.generate_resource_from_iterable(
             headers=df.columns.tolist(),
             iterable=df.to_dict(orient="records"),
