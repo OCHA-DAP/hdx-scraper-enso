@@ -10,12 +10,13 @@ from os.path import dirname, expanduser, join
 
 from hdx.api.configuration import Configuration
 from hdx.facades.infer_arguments import facade
-from hdx.scraper.enso.enso import ENSO
 from hdx.utilities.downloader import Download
 from hdx.utilities.path import (
     wheretostart_tempdir_batch,
 )
 from hdx.utilities.retriever import Retrieve
+
+from hdx.scraper.enso.enso import ENSO
 
 logger = logging.getLogger(__name__)
 
