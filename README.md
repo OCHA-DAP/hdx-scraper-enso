@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-enso/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-enso?branch=main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-This script connects to NOAA's Climate Prediction Center's (CPC) data on the El Niño/ Southern Oscillation (ENSO) cycle and creates one dataset with one row per month from 1950 to the present. It runs every 30 days on the first Thursday of each month.
+This script connects to NOAA's Climate Prediction Center's (CPC) data on the El Niño/ Southern Oscillation (ENSO) cycle and creates one dataset with one row per month from 1950 to the present. It runs every 30 days at midnight on the first Friday of each month.
 
 ## Development
 
