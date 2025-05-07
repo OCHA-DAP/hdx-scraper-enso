@@ -82,7 +82,6 @@ class ENSO:
         dataset = Dataset({"name": slugified_name, "title": dataset_title})
 
         # Add dataset info
-        # dataset.add_country_location(location["code"])
         dataset.add_other_location("world")
         dataset.add_tags(dataset_info["tags"])
 
