@@ -70,7 +70,7 @@ hdx-python-api==6.3.9
     # via
     #   -c requirements.txt
     #   hdx-scraper-enso (pyproject.toml)
-hdx-python-country==3.9.2
+hdx-python-country==3.9.3
     # via
     #   -c requirements.txt
     #   hdx-python-api
