@@ -72,7 +72,7 @@ class TestENSO:
 
                 assert dataset == {
                     "name": "enso-el-nino-southern-oscillation",
-                    "title": "ENSO: El Niño-Southern Oscillation",
+                    "title": "El Niño-Southern Oscillation (ENSO): El Niño and La Niña Events",
                     "dataset_date": "[1950-01-01T00:00:00 TO 2025-04-01T23:59:59]",
                     "tags": [
                         {

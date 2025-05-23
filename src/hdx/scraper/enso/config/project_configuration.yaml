@@ -1,5 +1,5 @@
 base_url: "https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt"
-title: "ENSO: El Niño-Southern Oscillation"
+title: "El Niño-Southern Oscillation (ENSO): El Niño and La Niña Events"
 description: Monthly analysis of the El Niño-Southern Oscillation (ENSO) cycle
 
 tags:

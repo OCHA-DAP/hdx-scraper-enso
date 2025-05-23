@@ -31,12 +31,8 @@ click==8.1.8
     # via
     #   -c requirements.txt
     #   typer
-coverage==7.8.0
+coverage==7.8.2
     # via pytest-cov
-cydifflib==1.2.0
-    # via
-    #   -c requirements.txt
-    #   hdx-python-utilities
 defopt==6.4.0
     # via
     #   -c requirements.txt
@@ -66,15 +62,15 @@ frictionless==5.18.1
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-hdx-python-api==6.3.9
+hdx-python-api==6.4.3
     # via
     #   -c requirements.txt
     #   hdx-scraper-enso (pyproject.toml)
-hdx-python-country==3.9.3
+hdx-python-country==3.9.4
     # via
     #   -c requirements.txt
     #   hdx-python-api
-hdx-python-utilities==3.8.6
+hdx-python-utilities==3.8.7
     # via
     #   -c requirements.txt
     #   hdx-scraper-enso (pyproject.toml)
@@ -89,7 +85,7 @@ idna==3.10
     #   -c requirements.txt
     #   email-validator
     #   requests
-ijson==3.3.0
+ijson==3.4.0
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
@@ -133,7 +129,7 @@ loguru==0.7.3
     # via
     #   -c requirements.txt
     #   hdx-python-utilities
-makefun==1.15.6
+makefun==1.16.0
     # via
     #   -c requirements.txt
     #   hdx-python-api
@@ -161,7 +157,7 @@ num2words==0.5.14
     # via
     #   -c requirements.txt
     #   quantulum3
-numpy==2.2.5
+numpy==2.2.6
     # via
     #   -c requirements.txt
     #   pandas
@@ -179,7 +175,7 @@ petl==1.7.16
     # via
     #   -c requirements.txt
     #   frictionless
-pluggy==1.5.0
+pluggy==1.6.0
     # via pytest
 ply==3.11
     # via
@@ -190,7 +186,7 @@ pockets==0.9.1
     # via
     #   -c requirements.txt
     #   sphinxcontrib-napoleon
-pydantic==2.11.4
+pydantic==2.11.5
     # via
     #   -c requirements.txt
     #   frictionless
@@ -270,7 +266,7 @@ rich==14.0.0
     # via
     #   -c requirements.txt
     #   typer
-rpds-py==0.24.0
+rpds-py==0.25.1
     # via
     #   -c requirements.txt
     #   jsonschema
@@ -283,7 +279,7 @@ ruamel-yaml-clib==0.2.12
     # via
     #   -c requirements.txt
     #   ruamel-yaml
-setuptools==80.3.1
+setuptools==80.8.0
     # via
     #   -c requirements.txt
     #   ckanapi
@@ -334,7 +330,7 @@ typeguard==4.4.2
     # via
     #   -c requirements.txt
     #   inflect
-typer==0.15.3
+typer==0.15.4
     # via
     #   -c requirements.txt
     #   frictionless
@@ -348,7 +344,7 @@ typing-extensions==4.13.2
     #   typeguard
     #   typer
     #   typing-inspection
-typing-inspection==0.4.0
+typing-inspection==0.4.1
     # via
     #   -c requirements.txt
     #   pydantic

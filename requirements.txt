@@ -18,8 +18,6 @@ ckanapi==4.8
     # via hdx-python-api
 click==8.1.8
     # via typer
-cydifflib==1.2.0
-    # via hdx-python-utilities
 defopt==6.4.0
     # via hdx-python-api
 dnspython==2.7.0
@@ -36,11 +34,11 @@ et-xmlfile==2.0.0
     # via openpyxl
 frictionless==5.18.1
     # via hdx-python-utilities
-hdx-python-api==6.3.9
+hdx-python-api==6.4.3
     # via hdx-scraper-enso (pyproject.toml)
-hdx-python-country==3.9.3
+hdx-python-country==3.9.4
     # via hdx-python-api
-hdx-python-utilities==3.8.6
+hdx-python-utilities==3.8.7
     # via
     #   hdx-scraper-enso (pyproject.toml)
     #   hdx-python-api
@@ -51,7 +49,7 @@ idna==3.10
     # via
     #   email-validator
     #   requests
-ijson==3.3.0
+ijson==3.4.0
     # via hdx-python-utilities
 inflect==7.5.0
     # via quantulum3
@@ -75,7 +73,7 @@ libhxl==5.2.2
     #   hdx-python-country
 loguru==0.7.3
     # via hdx-python-utilities
-makefun==1.15.6
+makefun==1.16.0
     # via hdx-python-api
 markdown-it-py==3.0.0
     # via rich
@@ -89,7 +87,7 @@ more-itertools==10.7.0
     # via inflect
 num2words==0.5.14
     # via quantulum3
-numpy==2.2.5
+numpy==2.2.6
     # via pandas
 openpyxl==3.1.5
     # via hdx-python-utilities
@@ -103,7 +101,7 @@ ply==3.11
     #   libhxl
 pockets==0.9.1
     # via sphinxcontrib-napoleon
-pydantic==2.11.4
+pydantic==2.11.5
     # via frictionless
 pydantic-core==2.33.2
     # via pydantic
@@ -150,7 +148,7 @@ rfc3986==2.0.0
     # via frictionless
 rich==14.0.0
     # via typer
-rpds-py==0.24.0
+rpds-py==0.25.1
     # via
     #   jsonschema
     #   referencing
@@ -158,7 +156,7 @@ ruamel-yaml==0.18.10
     # via hdx-python-utilities
 ruamel-yaml-clib==0.2.12
     # via ruamel-yaml
-setuptools==80.3.1
+setuptools==80.8.0
     # via ckanapi
 shellingham==1.5.4
     # via typer
@@ -186,7 +184,7 @@ text-unidecode==1.3
     # via python-slugify
 typeguard==4.4.2
     # via inflect
-typer==0.15.3
+typer==0.15.4
     # via frictionless
 typing-extensions==4.13.2
     # via
@@ -197,7 +195,7 @@ typing-extensions==4.13.2
     #   typeguard
     #   typer
     #   typing-inspection
-typing-inspection==0.4.0
+typing-inspection==0.4.1
     # via pydantic
 tzdata==2025.2
     # via pandas
