@@ -73,7 +73,7 @@ class TestENSO:
                 assert dataset == {
                     "name": "el-nino-southern-oscillation-enso-el-nino-and-la-nina-events",
                     "title": "El Niño-Southern Oscillation (ENSO): El Niño and La Niña Events",
-                    "dataset_date": "[1950-01-01T00:00:00 TO 2025-07-01T23:59:59]",
+                    "dataset_date": "[1950-01-01T00:00:00 TO 2025-08-01T23:59:59]",
                     "tags": [
                         {
                             "name": "climate hazards",
@@ -126,7 +126,5 @@ class TestENSO:
                         "description": "Monthly analysis of the El Niño-Southern Oscillation (ENSO) "
                         "cycle",
                         "format": "csv",
-                        "resource_type": "file.upload",
-                        "url_type": "upload",
                     }
                 ]
