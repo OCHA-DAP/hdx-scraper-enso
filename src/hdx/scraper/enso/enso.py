@@ -97,14 +97,12 @@ class ENSO:
             "description": resource_description,
         }
 
-        dataset.generate_resource_from_iterable(
-            headers=df.columns.tolist(),
-            iterable=df.to_dict(orient="records"),
-            hxltags=dataset_info["hxl_tags"],
+        dataset.generate_resource(
             folder=self._temp_dir,
             filename=resource_name,
+            rows=df.to_dict(orient="records"),
             resourcedata=resource,
-            quickcharts=None,
+            headers=df.columns.tolist(),
         )
 
         return dataset
