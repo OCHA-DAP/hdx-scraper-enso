@@ -19,7 +19,7 @@ certifi==2026.2.25
     # via
     #   -c requirements.txt
     #   requests
-chardet==6.0.0.post1
+chardet==7.0.0
     # via
     #   -c requirements.txt
     #   frictionless

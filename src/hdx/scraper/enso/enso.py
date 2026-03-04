@@ -2,11 +2,9 @@
 """enso scraper"""
 
 import logging
-from io import StringIO
 from typing import Optional
 
 import pandas as pd
-import requests
 from hdx.api.configuration import Configuration
 from hdx.data.dataset import Dataset
 from hdx.utilities.retriever import Retrieve
@@ -25,12 +23,8 @@ class ENSO:
 
     def process_enso(self) -> pd.DataFrame:
         base_url = self._configuration["base_url"]
-        response = requests.get(base_url)
-        response.raise_for_status()
-
-        data = StringIO(response.text)
-
-        df = pd.read_csv(data, sep=r"\s+")
+        filename = self._retriever.download_file(base_url)
+        df = pd.read_csv(filename, sep=r"\s+")
 
         def anom_to_phase(anom):
             if anom >= 0.5:
